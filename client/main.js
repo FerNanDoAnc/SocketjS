@@ -10,7 +10,7 @@ function render(data){
     var html = data.map(function(message, index){
         return(`
             <div class="message">
-                <strong>${message.nickname}</strong>
+                <strong>${message.nickname} dice: </strong>    
                 <p>${message.text}</p>    
             </div>
         `);
