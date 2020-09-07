@@ -20,6 +20,13 @@ var messages=[{
 io.on ('connection',function(socket){
     console.log("El cliente con IP: "+socket.handshake.address+", se ha conectado!!");    //PAra ver la ip del cliente
     socket.emit('messages',messages); //emitir mensaje al cliente
+
+    socket.on('add-message', function(data){
+        messages.push(data);
+
+        io.sockets.emit('messages',messages);
+    });
+
 });//Abrimos una conexion al sovket, encarga de recibir las coenxiones de loa clientes.
 
 server.listen(6677, function(){
